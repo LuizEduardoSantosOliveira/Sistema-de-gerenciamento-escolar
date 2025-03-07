@@ -40,6 +40,44 @@ export default function AuthenticatedLayout({ header, children }) {
                                    Home do estudante
                                 </NavLink>
                             </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('calendar')}
+                                    active={route().current('calendar')}
+                                >
+                                   Calendário escolar
+                                </NavLink>
+                            </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('aboutus')}
+                                    active={route().current('aboutus')}
+                                >
+                                   Sobre Nós
+                                </NavLink>
+                            </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('grades')}
+                                    active={route().current('grades')}
+                                >
+                                   Boletim
+                                </NavLink>
+                            </div>
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('requirements')}
+                                    active={route().current('requirements')}
+                                >
+                                  Requerimentos
+                                </NavLink>
+                            </div>
+
+                            
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
