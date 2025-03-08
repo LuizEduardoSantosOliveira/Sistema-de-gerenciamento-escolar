@@ -12,7 +12,7 @@ Route::get('/', function () {
 // routes/web.php
 
 // Rotas de estudante
-Route::middleware(['auth', 'verified', 'user.type:student'])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/Student/StudentDashboard', function () {
         return Inertia::render('Student/StudentDashboard');
     })->name('studentdashboard');
@@ -27,7 +27,7 @@ Route::middleware(['auth', 'verified', 'user.type:student'])->group(function () 
 
     Route::get('/Student/Requirements', function () {
         return Inertia::render('Student/Requirements');
-    })->name('requiriments');
+    })->name('requeriments');
 
     Route::get('/Student/AboutUs', function () {
         return Inertia::render('Student/AboutUs');
@@ -44,7 +44,7 @@ Route::middleware(['auth', 'verified', 'user.type:student'])->group(function () 
 });
 
 // Rotas de professor
-Route::middleware(['auth', 'verified', 'user.type:teacher'])->group(function () {
+Route::middleware(['auth', 'verified',])->group(function () {
     Route::get('/Teacher/TeacherDashboard', function () {
         return Inertia::render('Teacher/TeacherDashboard');
     })->name('teacherdashboard');
@@ -52,10 +52,13 @@ Route::middleware(['auth', 'verified', 'user.type:teacher'])->group(function () 
     // ... outras rotas de professor
 });
 
-Route::middleware(['auth', 'verified', 'user.type:admin' ])->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/Admin/AdminDashboard', function () {
         return Inertia::render('Admin/AdminDashboard');
     })->name('admindashboard');
+    Route::get('/Admin/UserManagement', function () {
+        return Inertia::render('Admin/UserManagement');
+    })->name('usermanagement');
     
     // ... outras rotas de professor
 });

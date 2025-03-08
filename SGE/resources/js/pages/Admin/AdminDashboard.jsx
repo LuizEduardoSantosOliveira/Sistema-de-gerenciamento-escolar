@@ -1,9 +1,9 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayoutAdmin from '@/layouts/AuthenticatedLayoutAdmin';
 import { Head } from '@inertiajs/react';
 
 export default function AdminDashboard() {
     return (
-        <AuthenticatedLayout
+        <AuthenticatedLayoutAdmin
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                    Home
@@ -21,6 +21,6 @@ export default function AdminDashboard() {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </AuthenticatedLayoutAdmin>
     );
 }

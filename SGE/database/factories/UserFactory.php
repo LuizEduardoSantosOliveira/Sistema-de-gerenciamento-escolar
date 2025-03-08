@@ -24,7 +24,7 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('password'), // senha padrão para testes
             'remember_token' => Str::random(10),
-            'user_type' => $this->faker->randomElement(['student', 'teacher']),
+            'user_type' => $this->faker->randomElement(['student', 'teacher', 'admin']),
             'profile_id' => null, // Será preenchido depois
         ];
     }

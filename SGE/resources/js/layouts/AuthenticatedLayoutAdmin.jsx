@@ -5,7 +5,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function AuthenticatedLayout({ header, children }) {
+export default function AuthenticatedLayoutAdmin({ header, children }) {
     const user = usePage().props.auth.user;
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
@@ -23,23 +23,34 @@ export default function AuthenticatedLayout({ header, children }) {
                                 </Link>
                             </div>
 
-                           
+
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('studentdashboard')}
-                                    active={route().current('studentdashboard')}
+                                    href={route('admindashboard')}
+                                    active={route().current('admindashboard')}
                                 >
-                                   Home do estudante
+                                    Home
+                                </NavLink>
+                            </div>
+
+
+
+                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                                <NavLink
+                                    href={route('usermanagement')}
+                                    active={route().current('usermanagement')}
+                                >
+                                    Gerencimento dos usuários
                                 </NavLink>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('calendar')}
-                                    active={route().current('calendar')}
+                                    href={route('calendarmanagement')}
+                                    active={route().current('calendarmanagement')}
                                 >
-                                   Calendário escolar
+                                    Gerenciamento do calendário escolar
                                 </NavLink>
                             </div>
 
@@ -48,29 +59,30 @@ export default function AuthenticatedLayout({ header, children }) {
                                     href={route('aboutus')}
                                     active={route().current('aboutus')}
                                 >
-                                   Sobre Nós
+                                    Sobre Nós
                                 </NavLink>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('grades')}
-                                    active={route().current('grades')}
+                                    href={route('requirementmanagement')}
+                                    active={route().current('requirementmanagement')}
                                 >
-                                   Boletim
+                                    Gerenciamento dos requerimentos
                                 </NavLink>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('requeriments')}
-                                    active={route().current('requeriments')}
+                                    href={route('grademanagement')}
+                                    active={route().current('grademanagement')}
                                 >
-                                  Requerimentos
+                                    Gerencimento dos boletim
                                 </NavLink>
                             </div>
 
-                            
+
+
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
