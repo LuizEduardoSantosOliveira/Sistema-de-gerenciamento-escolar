@@ -19,11 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->date('date_of_birth');
-            $table->string("photo");
-            $table->string("cpf",11)->unique();
-            $table->string("cep",8);
-            $table->string("phone_number",11);
+            $table->string('type');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

@@ -6,55 +6,62 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('Auth/Login');
+})->name('root');
+
+// routes/web.php
+
+// Rotas de estudante
+Route::middleware(['auth', 'verified', 'user.type:student'])->group(function () {
+    Route::get('/Student/StudentDashboard', function () {
+        return Inertia::render('Student/StudentDashboard');
+    })->name('studentdashboard');
+    
+    Route::get('/Student/Calendar', function () {
+        return Inertia::render('Student/Calendar');
+    })->name('calendar');
+    
+    Route::get('/Student/Grades', function () {
+        return Inertia::render('Student/Grades');
+    })->name('grades');
+
+    Route::get('/Student/Requirements', function () {
+        return Inertia::render('Student/Requirements');
+    })->name('requiriments');
+
+    Route::get('/Student/AboutUs', function () {
+        return Inertia::render('Student/AboutUs');
+    })->name('aboutus');
+    
+
+    Route::get('/Student/ClassSchedule', function () {
+        return Inertia::render('Student/ClassSchedule');
+    })->name('classschedule');
+
+    Route::get('/Student/Perfil', function () {
+        return Inertia::render('Student/Perfil');
+    })->name('perfil');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Rotas de professor
+Route::middleware(['auth', 'verified', 'user.type:teacher'])->group(function () {
+    Route::get('/Teacher/TeacherDashboard', function () {
+        return Inertia::render('Teacher/TeacherDashboard');
+    })->name('teacherdashboard');
+    
+    // ... outras rotas de professor
+});
 
-Route::get('/student', function () {
-    return Inertia::render('student/StudentDashboard');
-})->middleware(['auth', 'verified'])->name('studentdashboard');
-
-/*Route::get('/student', function () {
-    return Inertia::render('student/AboutUs');
-})->middleware(['auth', 'verified'])->name('aboutus');*/
-
-Route::get('/student/Calendar', function () {
-    return Inertia::render('student/Calendar');
-})->middleware(['auth', 'verified'])->name('calendar');
-
-Route::get('/student/Grades', function () {
-    return Inertia::render('student/Grades');
-})->middleware(['auth', 'verified'])->name('grades');
-
-Route::get('/student/Perfil', function () {
-    return Inertia::render('student/Perfil');
-})->middleware(['auth', 'verified'])->name('perfil');
+Route::middleware(['auth', 'verified', 'user.type:admin' ])->group(function () {
+    Route::get('/Admin/AdminDashboard', function () {
+        return Inertia::render('Admin/AdminDashboard');
+    })->name('admindashboard');
+    
+    // ... outras rotas de professor
+});
 
 
-Route::get('/student/Requirements', function () {
-    return Inertia::render('student/Requirements');
-})->middleware(['auth', 'verified'])->name('requirements');
 
-
-Route::get('/student/ClassSchedule', function () {
-    return Inertia::render('student/ClassSchedule');
-})->middleware(['auth', 'verified'])->name('classschedule');
-
-Route::get('/student/MakeReservation', function () {
-    return Inertia::render('student/MakeReservation');
-})->middleware(['auth', 'verified'])->name('makereservation');
-
-Route::get('/student/AboutUs', function () {
-    return Inertia::render('student/AboutUs');
-})->middleware(['auth', 'verified'])->name('aboutus');
 
 
 

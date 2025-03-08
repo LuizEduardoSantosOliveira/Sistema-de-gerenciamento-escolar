@@ -17,7 +17,17 @@ export default function Login({ status, canResetPassword }) {
         e.preventDefault();
 
         post(route('login'), {
-            onFinish: () => reset('password'),
+            onSuccess: () => {
+                // Isso só será executado se a autenticação for bem-sucedida
+                window.location.href = '/Student/StudentDashboard';
+            },
+            onError: (errors) => {
+                console.error('Erro no login:', errors);
+                // Não redirecione aqui - o formulário permanecerá na página de login
+            },
+            onFinish: () => {
+                reset('password');
+            },
         });
     };
 
