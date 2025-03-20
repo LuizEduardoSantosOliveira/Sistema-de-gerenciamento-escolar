@@ -71,7 +71,7 @@ export default function AuthenticatedLayoutAdmin({ header, children }) {
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
                                     href={route('usermanagment')}
-                                    active={route().current('useremanagment')}
+                                    active={route().current('usermanagment')}
                                 >
                                     Gerenciamento dos usuários
                                 </NavLink>

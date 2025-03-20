@@ -1,9 +1,9 @@
-import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
+import AuthenticatedLayoutStudent from '@/Layouts/AuthenticatedLayoutStudent';
 import { Head } from '@inertiajs/react';
 
 export default function StudentDashboard() {
     return (
-        <AuthenticatedLayout
+        <AuthenticatedLayoutStudent
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
                     Home Aluno
@@ -21,6 +21,6 @@ export default function StudentDashboard() {
                     </div>
                 </div>
             </div>
-        </AuthenticatedLayout>
+        </AuthenticatedLayoutStudent>
     );
 }

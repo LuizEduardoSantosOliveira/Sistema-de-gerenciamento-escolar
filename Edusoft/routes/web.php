@@ -24,12 +24,6 @@ Route::middleware(['user.type:student'])->group(function () {
         return Inertia::render('Student/Requiriments');
     })->name('requiriments');
 
-    Route::get('/Student/Reserve', function () {
-        return Inertia::render('Student/Reserve');
-    })->name('reserve');
-
-  
-    
 });
 
 // Rotas para professores
@@ -38,9 +32,9 @@ Route::middleware(['user.type:teacher'])->group(function () {
         return Inertia::render('Teacher/TeacherDashboard');
     })->name('teacherdashboard');
 
-    Route::get('/Teacher/ClassSchedule', function () {
-        return Inertia::render('Teacher/ClassSchedule');
-    })->name('classschedule');
+    Route::get('/Teacher/TeacherClassSchedule', function () {
+        return Inertia::render('Teacher/TeacherClassSchedule');
+    })->name('teacherclassschedule');
 
     Route::get('/Teacher/Class', function () {
         return Inertia::render('Teacher/Class');
@@ -48,7 +42,7 @@ Route::middleware(['user.type:teacher'])->group(function () {
 
     Route::get('/Teacher/NoteRelease', function () {
         return Inertia::render('Teacher/NoteRelease');
-    })->name('noterealease');
+    })->name('noterelease');
 
     Route::get('/Teacher/Reserve', function () {
         return Inertia::render('Teacher/Reserve');
@@ -92,7 +86,7 @@ Route::get('/AboutUs', function () {
 })->name('aboutus');
 
 Route::get('/Calendar', function () {
-    return Inertia::render('/Calendar');
+    return Inertia::render('Calendar');
 })->name('calendar');
 
 Route::middleware('auth')->group(function () {
