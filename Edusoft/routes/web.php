@@ -14,8 +14,22 @@ Route::middleware(['user.type:student'])->group(function () {
     Route::get('/Student/StudentDashboard', function () {
         return Inertia::render('Student/StudentDashboard');
     })->name('studentdashboard');
+
+
+    Route::get('/Student/ClassSchedule', function () {
+        return Inertia::render('Student/ClassSchedule');
+    })->name('classschedule');
+
+    Route::get('/Student/Requiriments', function () {
+        return Inertia::render('Student/Requiriments');
+    })->name('requiriments');
+
+    Route::get('/Student/Reserve', function () {
+        return Inertia::render('Student/Reserve');
+    })->name('reserve');
+
+  
     
-    // Adicione mais rotas de estudante aqui
 });
 
 // Rotas para professores
@@ -23,8 +37,23 @@ Route::middleware(['user.type:teacher'])->group(function () {
     Route::get('/Teacher/TeacherDashboard', function () {
         return Inertia::render('Teacher/TeacherDashboard');
     })->name('teacherdashboard');
+
+    Route::get('/Teacher/ClassSchedule', function () {
+        return Inertia::render('Teacher/ClassSchedule');
+    })->name('classschedule');
+
+    Route::get('/Teacher/Class', function () {
+        return Inertia::render('Teacher/Class');
+    })->name('class');
+
+    Route::get('/Teacher/NoteRelease', function () {
+        return Inertia::render('Teacher/NoteRelease');
+    })->name('noterealease');
+
+    Route::get('/Teacher/Reserve', function () {
+        return Inertia::render('Teacher/Reserve');
+    })->name('reserve');
     
-    // Adicione mais rotas de professor aqui
 });
 
 // Rotas para administradores
@@ -32,11 +61,39 @@ Route::middleware(['user.type:admin'])->group(function () {
     Route::get('/Admin/AdminDashboard', function () {
         return Inertia::render('Admin/AdminDashboard');
     })->name('admindashboard');
+
+    Route::get('Admin/CalendarManagment', function () {
+        return Inertia::render('Admin/CalendarManagment');
+    })->name('calendarmanagment');
+
+    Route::get('Admin/GradeManagment', function () {
+        return Inertia::render('Admin/GradeManagment');
+    })->name('grademanagment');
+
+    Route::get('Admin/RequirimentManagment', function () {
+        return Inertia::render('Admin/RequirimentManagment');
+    })->name('requirementmanagment');
+
+    Route::get('Admin/ReserveManagment', function () {
+        return Inertia::render('Admin/ReserveManagment');
+    })->name('reservemanagment');
+
+    Route::get('Admin/UserManagment', function () {
+        return Inertia::render('Admin/UserManagment');
+    })->name('usermanagment');
     
 });
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/AboutUs', function () {
+    return Inertia::render('AboutUs');
+})->name('aboutus');
+
+Route::get('/Calendar', function () {
+    return Inertia::render('/Calendar');
+})->name('calendar');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
