@@ -5,7 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Auth/Login');
+    return Inertia::render('Auth/Login', [
+        'status' => session('status'),
+        'error' => session('error'),
+        'canResetPassword' => Route::has('password.request'),
+    ]);
 })->name('root');
 
 

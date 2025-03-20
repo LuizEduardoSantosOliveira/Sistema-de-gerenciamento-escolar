@@ -42,7 +42,7 @@ class AuthenticatedSessionController extends Controller
         'student' => redirect()->route('studentdashboard'),
         'teacher' => redirect()->route('teacherdashboard'),
         'admin' => redirect()->route('admindashboard'),
-        default => redirect()->route('dashboard'),
+        default =>  redirect()->route('root')->with('error', 'Tipo de usuário invalido.')
     };
 }
 
