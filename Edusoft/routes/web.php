@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -92,6 +93,10 @@ Route::get('/AboutUs', function () {
 Route::get('/Calendar', function () {
     return Inertia::render('Calendar');
 })->name('calendar');
+
+
+// Verifique se está definido exatamente assim
+Route::resource('users', UserController::class)->middleware(['auth']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

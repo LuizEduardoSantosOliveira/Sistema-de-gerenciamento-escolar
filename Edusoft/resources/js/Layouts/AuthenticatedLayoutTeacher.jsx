@@ -25,8 +25,8 @@ export default function AuthenticatedLayoutTeacher({ header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                                 <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                    href={route('teacherdashboard')}
+                                    active={route().current('teacherdashboard')}
                                 >
                                     Dashboard
                                 </NavLink>
