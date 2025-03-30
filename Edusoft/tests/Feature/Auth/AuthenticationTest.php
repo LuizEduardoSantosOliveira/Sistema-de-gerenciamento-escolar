@@ -17,17 +17,41 @@ class AuthenticationTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_users_can_authenticate_using_the_login_screen(): void
+    public function test_users_can_authenticate_and_are_redirected_correctly()
     {
-        $user = User::factory()->create();
-
+        $student = User::factory()->state(['user_type' => 'student'])->create();
+        
         $response = $this->post('/login', [
-            'email' => $user->email,
+            'email' => $student->email,
             'password' => 'password',
         ]);
-
+        
         $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        $response->assertRedirect(route('studentdashboard', absolute: false));
+        
+        $this->post('/logout');
+        
+        $teacher = User::factory()->state(['user_type' => 'teacher'])->create();
+        
+        $response = $this->post('/login', [
+            'email' => $teacher->email,
+            'password' => 'password',
+        ]);
+        
+        $this->assertAuthenticated();
+        $response->assertRedirect(route('teacherdashboard', absolute: false));
+        
+        $this->post('/logout');
+
+        $admin = User::factory()->state(['user_type' => 'admin'])->create();
+        
+        $response = $this->post('/login', [
+            'email' => $admin->email,
+            'password' => 'password',
+        ]);
+        
+        $this->assertAuthenticated();
+        $response->assertRedirect(route('admindashboard', absolute: false));
     }
 
     public function test_users_can_not_authenticate_with_invalid_password(): void

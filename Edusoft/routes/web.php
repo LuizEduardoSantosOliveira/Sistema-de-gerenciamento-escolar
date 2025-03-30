@@ -69,8 +69,8 @@ Route::middleware(['user.type:admin'])->group(function () {
         return Inertia::render('Admin/GradeManagment');
     })->name('grademanagment');
 
-    Route::get('Admin/RequirimentManagment', function () {
-        return Inertia::render('Admin/RequirimentManagment');
+    Route::get('Admin/RequirementManagment', function () {
+        return Inertia::render('Admin/RequirementManagment');
     })->name('requirementmanagment');
 
     Route::get('Admin/ReserveManagment', function () {

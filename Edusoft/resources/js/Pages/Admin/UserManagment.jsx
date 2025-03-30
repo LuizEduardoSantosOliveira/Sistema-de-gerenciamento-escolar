@@ -26,7 +26,6 @@ export default function UserManagement() {
             action: {
                 label: 'Confirmar',
                 onClick: () => {
-                    // Perform deletion if confirmed
                     destroy(route('users.destroy', { user: userId }), {
                         onSuccess: () => {
                             toast.success('Usuário excluído com sucesso!');
