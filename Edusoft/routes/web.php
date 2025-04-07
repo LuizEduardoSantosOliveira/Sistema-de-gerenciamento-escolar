@@ -1,5 +1,9 @@
 <?php
+
+use App\Http\Controllers\AmbientController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -95,8 +99,12 @@ Route::get('/Calendar', function () {
 })->name('calendar');
 
 
-// Verifique se está definido exatamente assim
 Route::resource('users', UserController::class)->middleware(['auth']);
+Route::resource('ambients', AmbientController::class)->middleware(['auth']);
+Route::resource('categories',CategoryController::class)->middleware(['auth']);
+Route::resource('reserves', ReserveController::class)->middleware(['auth']);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

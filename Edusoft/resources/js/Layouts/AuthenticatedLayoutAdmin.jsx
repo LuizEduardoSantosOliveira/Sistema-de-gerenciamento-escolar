@@ -27,6 +27,7 @@ export default function AuthenticatedLayoutAdmin({ header, children }) {
                                 <NavLink
                                     href={route('admindashboard')}
                                     active={route().current('admindashboard')}
+                                    
                                 >
                                     Dashboard
                                 </NavLink>

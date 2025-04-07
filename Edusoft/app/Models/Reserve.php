@@ -9,4 +9,12 @@ class Reserve extends Model
 {
     /** @use HasFactory<\Database\Factories\ReserveFactory> */
     use HasFactory;
+    protected $fillable = [
+
+
+        'reservationer',
+        'user_id',
+        'reservation_datetime',
+        'ambient_id',
+    ];
 }

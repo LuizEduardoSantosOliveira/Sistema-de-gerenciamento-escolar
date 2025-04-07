@@ -34,21 +34,21 @@ export default function ReserveManagement() {
         <AuthenticatedLayoutAdmin
             header={
                 <h2 className="text-xl font-semibold leading-tight text-gray-800">
-                    Gerenciamento de Usuários
+                    Gerenciamento de Reservas
                 </h2>
             }
         >
             <Toaster position="top-right" richColors />
-            <Head title="Gerenciamento de Usuário" />
+            <Head title="Gerenciamento de Reserva" />
 
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="mb-4">
                         <Link 
-                            href={route('users.create')} 
+                            href={route('reserves.create')} 
                             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                         >
-                            Novo usuário
+                            Nova reserva
                         </Link>
                     </div>
 
@@ -56,8 +56,8 @@ export default function ReserveManagement() {
                         <thead>
                             <tr className="bg-gray-200">
                                 <th className="border p-2">ID</th>
-                                <th className="border p-2">Nome</th>
-                                <th className="border p-2">Email</th>
+                                <th className="border p-2">Reservante</th> 
+                                <th className="border p-2">Data da reserva</th>
                                 <th className="border p-2">Criado em</th>
                                 <th className="border p-2">Tipo de usuário</th>
                                 <th className="border p-2">Ações</th>
