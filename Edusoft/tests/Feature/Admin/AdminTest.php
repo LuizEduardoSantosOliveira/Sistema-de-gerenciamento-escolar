@@ -69,5 +69,4 @@ public function test_UserManagment_can_be_rendered(): void
     $response->assertStatus(200);
 }
 
-
 }
