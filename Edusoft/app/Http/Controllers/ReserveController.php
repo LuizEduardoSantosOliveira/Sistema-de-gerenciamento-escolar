@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reserve;
-
+use Inertia\Inertia;
 class ReserveController extends Controller
 {
     /**
@@ -73,24 +73,18 @@ class ReserveController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'name' => 'required', 
-            'password' => "required", 
-            'email' => "required",
-            "cpf" => "required", 
-            "cep" => "required",
-            "telephone" => "required",
-            "user_type" => "required"
+            'reservationer' => 'required',
+            'user_id'=> 'required',
+            'reservation_datetime'=> 'required',
+            'ambient_id'=> 'required',
         ]);
     
        $reserve = Reserve::find($id);
-    
-       $reserve->name = $request->name;
-       $reserve->password = $request->password;
-       $reserve->email = $request->email;
-       $reserve->cep = $request->cep;
-       $reserve->cpf = $request->cpf;
-       $reserve->telephone = $request->telephone;
-       $reserve->user_type = $request->user_type;
+       $reserve->reservationer = $request->reservationer;
+       $reserve->user_id = $request->user_id;
+       $reserve->reservation_datetime = $request -> reservation_datetime;
+       $reserve->ambient_id = $request -> ambient_id;
+        
     
        $reserve->save();
     

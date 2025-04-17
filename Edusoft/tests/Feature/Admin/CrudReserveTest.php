@@ -9,7 +9,7 @@ use App\Models\User;
 use App\Models\Reserve;
 use App\Models\Ambient;
 
-class ReserveCrudTest extends TestCase
+class CrudReserveTest extends TestCase
 {
     use RefreshDatabase;
 
